@@ -38,6 +38,22 @@ namespace Simple.DbExtensions.Tvp.Models.Table
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public static PooledDataTableScope<TRow> BuildScoped<TRow>(this IEnumerable<TRow> rows) where TRow : class, ITableValued
+        {
+            return new PooledDataTableScope<TRow>(rows);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static PooledDataTableScope<TRow> BuildScoped<TRow>(this TRow row) where TRow : class, ITableValued
+        {
+            return new PooledDataTableScope<TRow>(row);
+        }
+
+        /// <summary>
         /// Return the table to the pool.
         /// </summary>
         public static void Return<TRow>(this PooledDataTable table) where TRow : class, ITableValued
