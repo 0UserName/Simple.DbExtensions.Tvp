@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.DbExtensions.Tvp", "Simple.DbExtensions.Tvp\Simple.DbExtensions.Tvp.csproj", "{261297CB-3ABD-46F1-AA26-7CC3131FB558}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple.DbExtensions.Tvp.Tests", "Simple.DbExtensions.Tvp.Tests\Simple.DbExtensions.Tvp.Tests.csproj", "{B476335F-D471-44F1-99EB-82AC722BDC60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{261297CB-3ABD-46F1-AA26-7CC3131FB558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{261297CB-3ABD-46F1-AA26-7CC3131FB558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{261297CB-3ABD-46F1-AA26-7CC3131FB558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{261297CB-3ABD-46F1-AA26-7CC3131FB558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B476335F-D471-44F1-99EB-82AC722BDC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B476335F-D471-44F1-99EB-82AC722BDC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B476335F-D471-44F1-99EB-82AC722BDC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B476335F-D471-44F1-99EB-82AC722BDC60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70244C52-9B33-4883-9CDD-A40BCA6538E4}
+	EndGlobalSection
+EndGlobal
