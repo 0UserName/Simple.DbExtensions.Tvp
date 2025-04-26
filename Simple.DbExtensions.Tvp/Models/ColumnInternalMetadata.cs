@@ -7,51 +7,33 @@ using System.Diagnostics;
 
 namespace Simple.DbExtensions.Tvp.Models
 {
-    [DebuggerDisplay("Name = { Name }, Type = { Type.Name }, Ordinal = { Ordinal }")]
-    public class ColumnInternalMetadata : IColumnInternalMetadata
+    [DebuggerDisplay("Name = { Name }, Type = { Type }, Ordinal = { Ordinal }")]
+    public class ColumnInternalMetadata(string name, string type, int ordinal) : IColumnInternalMetadata
     {
-        /// <inheritdoc cref="ITableMetadata.Name"/>
-        public string Table
-        {
-            get;
-            private set;
-        }
+        private readonly Type _type = System.Type.GetType(type);
 
         /// <inheritdoc/>
         public string Name
         {
-            get;
-            private set;
+            get => name;
         }
 
         /// <inheritdoc/>
-        public Type Type
+        public string Type
         {
-            get;
-            private set;
+            get => type;
         }
 
         /// <inheritdoc/>
         public int Ordinal
         {
-            get;
-            private set;
+            get => ordinal;
         }
 
         /// <inheritdoc/>
         public virtual DataColumn CreateColumn()
         {
-            return new DataColumn(Name, Type);
-        }
-
-        public ColumnInternalMetadata(string table, string name, Type type, int ordinal)
-        {
-            Table = table;
-
-            Name = name;
-            Type = type;
-
-            Ordinal = ordinal;
+            return new DataColumn(name, _type);
         }
     }
 }

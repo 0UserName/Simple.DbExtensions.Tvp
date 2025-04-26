@@ -4,6 +4,8 @@ using Simple.DbExtensions.Tvp.Pools;
 using System;
 using System.Collections.Generic;
 
+using System.Data;
+
 namespace Simple.DbExtensions.Tvp.Models.Table
 {
     public static class PooledDataTableExtension
@@ -45,9 +47,12 @@ namespace Simple.DbExtensions.Tvp.Models.Table
         /// <summary>
         /// Returns a table-valued parameter to the pool.
         /// </summary>
-        public static void Return<TRow>(this PooledDataTable table) where TRow : class, ITableValued
+        public static void Return<TRow>(this DataTable table) where TRow : class, ITableValued
         {
-            TableValuedPool<TRow>.Shared.Return(table);
+            if (table is PooledDataTable pooledTable)
+            {
+                TableValuedPool<TRow>.Shared.Return(pooledTable);
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ using System;
 namespace Simple.DbExtensions.Tvp.Attributes
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = true)]
-    public sealed class TableValuedPoolAttribute : Attribute
+    public sealed class TableValuedPoolAttribute(int maximumRetained) : Attribute
     {
         /// <summary>
         /// The 
@@ -13,13 +13,7 @@ namespace Simple.DbExtensions.Tvp.Attributes
         /// </summary>
         public int MaximumRetained
         {
-            get;
-            private set;
-        }
-
-        public TableValuedPoolAttribute(int maximumRetained)
-        {
-            MaximumRetained = maximumRetained;
+            get => maximumRetained;
         }
     }
 }
