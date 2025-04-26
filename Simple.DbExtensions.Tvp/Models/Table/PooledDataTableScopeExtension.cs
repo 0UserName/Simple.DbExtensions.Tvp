@@ -9,7 +9,7 @@ namespace Simple.DbExtensions.Tvp.Models.Table
         /// <summary>
         /// 
         /// </summary>
-        public static PooledDataTableScope<TRow> BuildScoped<TRow>(this IEnumerable<TRow> rows) where TRow : class, ITableValued
+        public static PooledDataTableScope<TRow> BuildScope<TRow>(this IEnumerable<TRow> rows) where TRow : class, ITableValued
         {
             return new PooledDataTableScope<TRow>(rows);
         }
@@ -17,7 +17,7 @@ namespace Simple.DbExtensions.Tvp.Models.Table
         /// <summary>
         /// 
         /// </summary>
-        public static PooledDataTableScope<TRow> BuildScoped<TRow>(this TRow row) where TRow : class, ITableValued
+        public static PooledDataTableScope<TRow> BuildScope<TRow>(this TRow row) where TRow : class, ITableValued
         {
             return new PooledDataTableScope<TRow>(row);
         }

@@ -1,24 +1,37 @@
 ﻿using Simple.DbExtensions.Tvp.Models.Contracts;
 
-using System;
 using System.Data;
+using System.Data.SqlTypes;
+
+using System.Diagnostics;
 
 namespace Simple.DbExtensions.Tvp.Models
 {
-    public sealed class ColumnExternalMetadata : ColumnInternalMetadata, IColumnExternalMetadata
+    [DebuggerDisplay("Name = { Name }, Type = { Type }, Ordinal = { Ordinal }, AllowDBNull = { AllowDBNull }, MaxLength = { MaxLength }, Unique = { Unique }")]
+    public sealed class ColumnExternalMetadata(string table, string name, string type, int ordinal, bool allowDBNull, int maxLength, bool unique) : ColumnInternalMetadata(name, type, ordinal), IColumnExternalMetadata
     {
+        /// <inheritdoc cref="ITableMetadata.Name"/>
+        public string Table
+        {
+            get => table;
+        }
+
         /// <inheritdoc/>
         public bool AllowDBNull
         {
-            get;
-            private set;
+            get => allowDBNull;
         }
 
         /// <inheritdoc/>
         public int MaxLength
         {
-            get;
-            private set;
+            get => maxLength;
+        }
+
+        /// <inheritdoc/>
+        public bool Unique
+        {
+            get => unique;
         }
 
         /// <summary>
@@ -26,7 +39,7 @@ namespace Simple.DbExtensions.Tvp.Models
         /// </summary>
         private DataColumn SetAllowDBNull(DataColumn column)
         {
-            column.AllowDBNull = AllowDBNull;
+            column.AllowDBNull = allowDBNull;
 
             return column;
         }
@@ -38,11 +51,21 @@ namespace Simple.DbExtensions.Tvp.Models
         /// </summary>
         /// 
         /// <remarks>
-        /// Applies to string data type only.
+        /// Applies to text data type only.
         /// </remarks>
         private DataColumn SetMaxLength(DataColumn column)
         {
-            column.MaxLength = Type.FullName == "System.String" ? MaxLength : column.MaxLength;
+            column.MaxLength = column.DataType == typeof(string) || column.DataType == typeof(SqlString) ? maxLength : column.MaxLength;
+
+            return column;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private DataColumn SetUnique(DataColumn column)
+        {
+            column.Unique = unique;
 
             return column;
         }
@@ -50,13 +73,7 @@ namespace Simple.DbExtensions.Tvp.Models
         /// <inheritdoc/>
         public override DataColumn CreateColumn()
         {
-            return SetMaxLength(SetAllowDBNull(base.CreateColumn()));
-        }
-
-        public ColumnExternalMetadata(string table, string name, string type, int ordinal, bool allowDBNull, short maxLength) : base(table, name, Type.GetType(type), ordinal)
-        {
-            AllowDBNull = allowDBNull;
-            MaxLength   = maxLength;
+            return SetUnique(SetMaxLength(SetAllowDBNull(base.CreateColumn())));
         }
     }
 }

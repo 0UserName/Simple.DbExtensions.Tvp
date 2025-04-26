@@ -15,5 +15,11 @@ namespace Simple.DbExtensions.Tvp.Models.Contracts
         {
             get;
         }
+
+        /// <inheritdoc cref="DataColumn.Unique"/>
+        bool Unique
+        {
+            get;
+        }
     }
 }

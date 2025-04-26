@@ -1,0 +1,50 @@
+on:
+  push:
+    tags: ["**"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pull
+        uses: actions/checkout@v4
+
+
+      #--------------#
+
+
+      - name: Init
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.*.*
+            9.*.*
+
+
+      #--------------#
+
+
+      - name: Make
+        run: dotnet build --configuration Release
+
+
+      #--------------#
+
+
+      - name: Test
+        run: dotnet test --no-build
+
+
+      #--------------#
+
+
+      - name: Pack
+        run: dotnet pack --no-build
+
+
+      #--------------#
+
+
+      - name: Push
+        run: dotnet nuget push **/*.nupkg -k ${{ secrets.NUGET_PASSWORD }} -s {{ vars.NUGET_HOSTNAME }}

@@ -16,7 +16,7 @@ namespace Simple.DbExtensions.Tvp.Models.Contracts
         }
 
         /// <summary>
-        /// Metadata required to create <see cref="DataTable"/>.
+        /// 
         /// </summary>
         static abstract ITableMetadata Table
         {
@@ -24,18 +24,14 @@ namespace Simple.DbExtensions.Tvp.Models.Contracts
         }
 
         /// <summary>
-        /// Metadata required to create <see cref="DataColumn"/>.
+        /// 
         /// </summary>
         static abstract IColumnInternalMetadata[] Columns
         {
             get;
         }
 
-        /// <summary>
-        /// Gets 
-        /// an array of values ​​for 
-        /// a <see cref="DataRow"/>.
-        /// </summary> 
+        /// <inheritdoc cref="DataRow.ItemArray"/>
         RentedBuffer<object> GetRow();
     }
 }

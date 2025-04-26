@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 
 namespace Simple.DbExtensions.Tvp.Models.Contracts
 {
@@ -12,7 +11,7 @@ namespace Simple.DbExtensions.Tvp.Models.Contracts
         }
 
         /// <inheritdoc cref="DataColumn.DataType"/>
-        Type Type
+        string Type
         {
             get;
         }
@@ -24,7 +23,7 @@ namespace Simple.DbExtensions.Tvp.Models.Contracts
         }
 
         /// <summary>
-        /// Creates a column using metadata.
+        /// 
         /// </summary>
         DataColumn CreateColumn();
     }

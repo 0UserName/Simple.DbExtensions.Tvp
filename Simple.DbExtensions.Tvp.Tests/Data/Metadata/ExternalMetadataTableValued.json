@@ -1,0 +1,38 @@
+[
+  {
+    "Table": "ExternalMetadataTableValued",
+    "Name": "Property0",
+    "Type": "System.Int32",
+    "Ordinal": 3,
+    "AllowDBNull": true,
+    "MaxLength": -1,
+    "Unique": false
+  },
+  {
+    "Table": "ExternalMetadataTableValued",
+    "Name": "Property1",
+    "Type": "System.Int32",
+    "Ordinal": 2,
+    "AllowDBNull": true,
+    "MaxLength": -1,
+    "Unique": false
+  },
+  {
+    "Table": "ExternalMetadataTableValued",
+    "Name": "Property2",
+    "Type": "System.Int32",
+    "Ordinal": 1,
+    "AllowDBNull": false,
+    "MaxLength": -1,
+    "Unique": true
+  },
+  {
+    "Table": "ExternalMetadataTableValued",
+    "Name": "Property3",
+    "Type": "System.Int32",
+    "Ordinal": 0,
+    "AllowDBNull": false,
+    "MaxLength": -1,
+    "Unique": true
+  }
+]

@@ -9,11 +9,5 @@ namespace Simple.DbExtensions.Tvp.Models.Contracts
         {
             get;
         }
-
-        /// <inheritdoc cref="DataTable.CaseSensitive"/>
-        bool CaseSensitive
-        {
-            get;
-        }
     }
 }

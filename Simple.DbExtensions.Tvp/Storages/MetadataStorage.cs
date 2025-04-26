@@ -22,9 +22,9 @@ namespace Simple.DbExtensions.Tvp.Storages
         /// <summary>
         /// 
         /// </summary>
-        internal static IColumnInternalMetadata[] GetColumns<TRow>() where TRow : ITableValued
+        public static IColumnInternalMetadata[] GetColumns<TRow>() where TRow : class, ITableValued
         {
-            return _storage.TryGetValue(TRow.Table.Name, out IColumnExternalMetadata[] metadata) ? metadata : StaticMetadataProvider.GetColumns<TRow>();
+            return _storage.TryGetValue(TRow.Table.Name, out IColumnExternalMetadata[] metadata) ? metadata : StaticMetadataProvider.CreateColumns<TRow>();
         }
     }
 }
