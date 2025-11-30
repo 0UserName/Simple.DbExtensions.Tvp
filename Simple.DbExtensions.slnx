@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Simple.DbExtensions.Tvp/Simple.DbExtensions.Tvp.csproj" />
+  <Project Path="Simple.DbExtensions.Tvp.Tests/Simple.DbExtensions.Tvp.Tests.csproj" />
+</Solution>
